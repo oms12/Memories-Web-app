@@ -1,8 +1,12 @@
 import Postmessage from "../models/postMessage.js";
+import express from "express";
+
+const router = express.Router();
+
 export const getPosts = async (req,res)=>
 {
    try {
-      const Postmessages = await Postmessage.find();
+      const Postmessages = await Postmessage.find({userId : req.userId});
       res.status(200).json(Postmessages);
    } catch (error) {
       res.status(404).json({message: error.message});
@@ -11,7 +15,15 @@ export const getPosts = async (req,res)=>
 }
 export const createPost = async (req,res)=>
 {
-   const post = req.body;
+   const post = {
+      title : req.body.title,
+      message : req.body.message,
+      userId : req.userId,
+      tags : req.body.tags,
+      selectedFile : req.body.selectedFile,
+      createdAt : req.body.createdAt
+
+   }
    console.log("ok added");
    const newPost = new Postmessage(post);
    try {
@@ -35,7 +47,6 @@ export const updatePost = async (req,res) =>
    try {
      //console.log(req.params.id);
      var post =  await Postmessage.findById(req.params.id);
-     post.creator = req.body.creator;
      post.title = req.body.title;
      post.message = req.body.message;
      post.tags = req.body.tags;
@@ -45,4 +56,5 @@ export const updatePost = async (req,res) =>
    } catch (error) {
       console.log(error);
    }
-}
+} 
+export default router;

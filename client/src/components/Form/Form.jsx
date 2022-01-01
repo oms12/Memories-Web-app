@@ -49,13 +49,6 @@ const Form = (props)=>
         <Paper className = {classes.paper}>
             <form autoComplete="off" noValidate  className = { `${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant = "h6">{props.need ? `Editing ${post.title}` :  "Creating a Memory"}</Typography>
-                <TextField name="creator"
-                  variant = "outlined"
-                  label = "Creator"
-                  fullWidth
-                  value = {post.creator}
-                  onChange = {handleChange}
-                ></TextField>
                 <TextField name="title"
                   variant = "outlined"
                   label = "title"
