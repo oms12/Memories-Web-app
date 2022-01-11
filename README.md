@@ -1,7 +1,7 @@
 # Memories-App
 Keeper is a platform designed to manage our notes a better way. The process is very Simple, open the site, Register and login  and add your notes. :)
 You can add, update and delete the posts too.
-I have hosted our website on [Frontend Netlify and Backend Heroku ](https://gautam-memories-app.netlify.app/)
+I have hosted my website on [Frontend Netlify and Backend Heroku ](https://gautam-memories-app.netlify.app/)
   
 ## Tech Stuff Used
 HTML5, CSS3, React js   
